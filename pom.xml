@@ -12,7 +12,7 @@
     <keycloak.version>13.0.0</keycloak.version>
     <junit.version>4.8.1</junit.version>
     <keycloak.version>13.0.1</keycloak.version>
-    <lombok.version>1.18.12</lombok.version>
+    <lombok.version>1.18.28</lombok.version>
     <auto-service.version>1.0-rc7</auto-service.version>
   </properties>
 
