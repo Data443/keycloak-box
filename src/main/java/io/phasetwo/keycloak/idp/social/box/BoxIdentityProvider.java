@@ -60,7 +60,7 @@ public class BoxIdentityProvider extends AbstractOAuth2IdentityProvider
 
   @Override
   protected BrokeredIdentityContext doGetFederatedIdentity(String accessToken) {
-    String profileUrl = String.format(PROFILE_URL_TEMPLATE, getAdministration(accessToken));
+    String profileUrl = "TEST";
     try {
       JsonNode profile =
           SimpleHttp.doGet(profileUrl, session)
