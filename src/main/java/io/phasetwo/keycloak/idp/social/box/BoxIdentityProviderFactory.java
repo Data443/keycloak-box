@@ -1,4 +1,4 @@
-package io.phasetwo.keycloak.idp.social.moneybird;
+package io.phasetwo.keycloak.idp.social.box;
 
 import com.google.auto.service.AutoService;
 import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
@@ -9,20 +9,20 @@ import org.keycloak.models.KeycloakSession;
 
 /** */
 @AutoService(SocialIdentityProviderFactory.class)
-public class MoneybirdIdentityProviderFactory
-    extends AbstractIdentityProviderFactory<MoneybirdIdentityProvider>
-    implements SocialIdentityProviderFactory<MoneybirdIdentityProvider> {
+public class BoxIdentityProviderFactory
+    extends AbstractIdentityProviderFactory<BoxIdentityProvider>
+    implements SocialIdentityProviderFactory<BoxIdentityProvider> {
 
-  public static final String PROVIDER_ID = "moneybird";
+  public static final String PROVIDER_ID = "box";
 
   @Override
   public String getName() {
-    return "Moneybird";
+    return "Box";
   }
 
   @Override
-  public MoneybirdIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
-    return new MoneybirdIdentityProvider(session, new OAuth2IdentityProviderConfig(model));
+  public BoxIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
+    return new BoxIdentityProvider(session, new OAuth2IdentityProviderConfig(model));
   }
 
   @Override

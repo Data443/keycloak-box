@@ -1,4 +1,4 @@
-package io.phasetwo.keycloak.idp.social.moneybird;
+package io.phasetwo.keycloak.idp.social.box;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +15,7 @@ import org.keycloak.models.KeycloakSession;
 
 /** */
 @JBossLog
-public class MoneybirdIdentityProvider extends AbstractOAuth2IdentityProvider
+public class BoxIdentityProvider extends AbstractOAuth2IdentityProvider
     implements SocialIdentityProvider {
 
   public static final String AUTH_URL = "https://moneybird.com/oauth/authorize";
@@ -27,7 +27,7 @@ public class MoneybirdIdentityProvider extends AbstractOAuth2IdentityProvider
   private static final String PROFILE_URL_TEMPLATE =
       "https://moneybird.com/api/v2/%s/users/userinfo.json";
 
-  public MoneybirdIdentityProvider(KeycloakSession session, OAuth2IdentityProviderConfig config) {
+  public BoxIdentityProvider(KeycloakSession session, OAuth2IdentityProviderConfig config) {
     super(session, config);
     config.setAuthorizationUrl(AUTH_URL);
     config.setTokenUrl(TOKEN_URL);
@@ -70,24 +70,6 @@ public class MoneybirdIdentityProvider extends AbstractOAuth2IdentityProvider
       return user;
     } catch (Exception e) {
       throw new IdentityBrokerException("Could not obtain user profile from moneybird.", e);
-    }
-  }
-
-  /**
-   * This is a hack suggested by the moneybird developers. You need an administration_id in order to
-   * query their userinfo endpoint. They suggested calling the administrations endpoint and just
-   * using the first one. TBD will this work for multiple administrations, and if we don't have
-   * access to the first?
-   */
-  private String getAdministration(String accessToken) {
-    try {
-      JsonNode admins =
-          SimpleHttp.doGet(ADMINISTRATIONS_URL, session)
-              .header("Authorization", "Bearer " + accessToken)
-              .asJson();
-      return admins.get(0).get("id").textValue();
-    } catch (Exception e) {
-      throw new IdentityBrokerException("Could not obtain administrations from moneybird.", e);
     }
   }
 

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.phasetwo</groupId>
-  <artifactId>keycloak-moneybird-idp</artifactId>
+  <artifactId>keycloak-box-idp</artifactId>
   <packaging>jar</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
@@ -12,7 +12,7 @@
     <keycloak.version>13.0.0</keycloak.version>
     <junit.version>4.8.1</junit.version>
     <keycloak.version>13.0.1</keycloak.version>
-    <lombok.version>1.18.28</lombok.version>
+    <lombok.version>1.18.24</lombok.version>
     <auto-service.version>1.0-rc7</auto-service.version>
   </properties>
 
